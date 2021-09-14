@@ -1,7 +1,8 @@
 {
   "ExpandedNodes": [
     "",
-    "\\.expo-shared"
+    "\\.expo-shared",
+    "\\assets"
   ],
   "PreviewInSolutionExplorer": false
 }

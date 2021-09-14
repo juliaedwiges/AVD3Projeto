@@ -1,4 +1,4 @@
-import { StatusBar } from 'expo-status-bar';
+import { StatusBar } from 'expo-status-bar'; 
 import React, { useEffect, useRef, useState } from 'react';
 import { FlatList, StyleSheet, TouchableOpacity, Text, TextInput, View } from 'react-native';
 
@@ -41,6 +41,11 @@ export default function App() {
     setTelefone("");
   }
 
+   function deletarCadastro(nome: string) {
+    const i = cadastros.filter(i => i.nome !== nome);
+    setCadastros(i);
+  }
+
   return (
     <View style={styles.container}>
 
@@ -78,7 +83,7 @@ export default function App() {
           renderItem={({ item }) => {
             return (
               <View key={item.nome}>
-                <Text >Nome: {item.nome}</Text>
+                <Text onPress={() => { deletarCadastro(item.nome) }} >Nome: {item.nome}</Text>
                 <Text >E-mail: {item.email}</Text>
                 <Text >Telefone: {item.telefone}</Text>
               </View>
@@ -94,15 +99,14 @@ export default function App() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    background: rgb(32,36,0),
-    background: linear-gradient(90deg, rgba(32,36,0,1) 0%, rgba(9,121,103,0.45702030812324934) 36%, rgba(0,219,255,0.19931722689075626) 100%),
+    backgroundColor: '#ADD8E6',
     alignItems: 'center',
     justifyContent: 'center'
   },
   title: {
     fontSize: 30,
     fontWeight: '700',
-    color: #191970
+    color: '#191970'
   },
   input: {
     paddingVertical: 10,
@@ -115,12 +119,10 @@ const styles = StyleSheet.create({
   button: {
     paddingVertical: 10,
     paddingHorizontal: 20,
-    background-color: #4CAF50,
-     border: none,
-    color: white,
-    text-align: center,
-    text-decoration: none,
-     display: inline-block,
-     font-size: 16px
+    backgroundColor: '#4CAF50',
+    borderWidth: 0,
+    color: 'white',
+    textAlign: 'center',
+    fontSize: 16
   }
-});
+});[]
